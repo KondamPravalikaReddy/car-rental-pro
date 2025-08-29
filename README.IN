@@ -1,0 +1,211 @@
+# CarRental Pro – Car Rental Management System
+
+A comprehensive full-stack car rental solution featuring modern UI, secure authentication, robust booking, payment integration, and an admin dashboard.
+
+---
+
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Database Schema](#database-schema)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Demo Accounts](#demo-accounts)
+- [Security](#security)
+- [Deployment](#deployment)
+- [Stretch Goals](#stretch-goals)
+- [License](#license)
+- [Contact](#contact)
+
+---
+
+## Features
+
+- JWT-based authentication with role management (Admin/Customer)
+- Browse and filter cars by brand, model, location, dates, and price
+- Booking system with date conflict and double-booking prevention
+- Integrated Stripe/Razorpay payments with transaction tracking
+- Booking history and cancellation before rental start
+- Admin panel to manage cars, users, bookings, and analytics
+- Protected routes and global error handling
+- Optional email notifications for bookings
+- Responsive, mobile-first design
+
+---
+
+## Tech Stack
+
+- **Frontend:** React.js, React Router, Material UI
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB or PostgreSQL
+- **Payments:** Stripe or Razorpay
+- **Others:** Nodemailer (optional), JWT
+
+---
+
+## Project Structure
+
+CarRental Pro/
+├── client/ # React frontend
+├── server/ # Node.js/Express backend
+├── README.md
+└── ...
+
+text
+
+---
+
+## Database Schema
+
+**User**
+
+{
+"_id": "string",
+"firstName": "string",
+"lastName": "string",
+"email": "string",
+"password": "hashed_string",
+"role": "customer|admin",
+"isVerified": "boolean"
+}
+
+text
+
+**Car**
+
+{
+"_id": "string",
+"make": "string",
+"model": "string",
+"year": "number",
+"pricePerDay": "number",
+"features": ["string"],
+"images": ["string"],
+"location": "string",
+"availability": "boolean"
+}
+
+text
+
+**Booking**
+
+{
+"_id": "string",
+"userId": "string",
+"carId": "string",
+"startDate": "date",
+"endDate": "date",
+"status": "pending|confirmed|active|completed|cancelled",
+"paymentStatus": "pending|paid",
+"paymentId": "string"
+}
+
+text
+
+**Payment**
+
+{
+"_id": "string",
+"bookingId": "string",
+"userId": "string",
+"amount": "number",
+"currency": "string",
+"transactionId": "string",
+"status": "pending|completed|failed|refunded"
+}
+
+text
+
+---
+
+## Installation
+
+1. Clone the repository:
+git clone https://github.com/your-username/car-rental-pro.git
+cd car-rental-pro
+
+text
+
+2. Install backend dependencies:
+cd server
+npm install
+
+text
+- Configure `.env` with database, JWT, and payment credentials.
+
+3. Install frontend dependencies:
+cd ../client
+npm install
+
+text
+
+4. Run backend:
+npm run dev
+
+text
+
+5. Run frontend (in a separate terminal):
+npm start
+
+text
+
+6. Access the app:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5000/api
+
+---
+
+## Usage
+
+- Register/Login as customer or admin
+- Browse available cars and filter as needed
+- Select rental dates and book, with payment processing
+- View booking history and manage bookings
+- Admin dashboard for management and analytics
+
+---
+
+## Demo Accounts
+
+| Role     | Email             | Password    |
+| -------- | ----------------- | ----------- |
+| Admin    | admin@example.com | admin123    |
+| Customer | john@example.com  | password123 |
+
+---
+
+## Security
+
+- JWT authentication and role-based access control
+- Secure payment processing with Stripe/Razorpay
+- Global error handling and validation
+
+---
+
+## Deployment
+
+Deploy to Render, Vercel, Heroku, or Netlify.  
+Update environment variables for production database and payment keys.
+
+---
+
+## Stretch Goals
+
+- Google Maps location integration
+- Availability calendar
+- Coupons and discount system
+- Progressive Web App (PWA)
+
+---
+
+## License
+
+MIT License
+
+---
+
+## Contact
+
+Questions, issues, or contributions? Please open an issue or submit a pull request.
