@@ -43,11 +43,11 @@
 
 ## 🛠 Tech Stack
 
-**Frontend:** React.js, React Router, Material UI
-**Backend:** Node.js, Express.js
-**Database:** MongoDB / PostgreSQL
-**Payments:** Stripe / Razorpay
-**Others:** JWT, Nodemailer (optional)
+* **Frontend:** React.js, React Router, Material UI
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB / PostgreSQL
+* **Payments:** Stripe / Razorpay
+* **Others:** JWT, Nodemailer (optional)
 
 ---
 
